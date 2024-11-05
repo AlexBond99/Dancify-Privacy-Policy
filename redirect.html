@@ -6,17 +6,21 @@
     <title>Redirecting...</title>
     <script type="text/javascript">
         function redirect() {
-            // Attempt to open the app via deep link
+            console.log("Attempting to open app with deep link.");
+            // Attempt to redirect to the app
             window.location.href = "dancify://challengelink?scene=Challenge";
-            
-            // Set a timeout to redirect to Play Store if app is not installed
+
+            // Fallback to Play Store after a delay if the app is not installed
             setTimeout(function() {
+                console.log("App not installed; redirecting to Play Store.");
                 window.location.href = "https://play.google.com/store/apps/details?id=com.unity.Dancify.Development";
-            }, 2000); // Wait 2 seconds before redirecting to Play Store
+            }, 2000); // Change the delay as needed (2000 ms = 2 seconds)
         }
     </script>
 </head>
 <body onload="redirect()">
-    <p>If you are not redirected, <a href="https://play.google.com/store/apps/details?id=com.unity.Dancify.Development">click here to download the app</a>.</p>
+    <p>Redirecting to the app...</p>
+    <button onclick="redirect()">Open App</button>
+    <p>If nothing happens, click the button above to try opening the app.</p>
 </body>
 </html>
