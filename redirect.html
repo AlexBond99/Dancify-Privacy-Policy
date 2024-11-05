@@ -6,16 +6,16 @@
     <title>Redirecting...</title>
     <script type="text/javascript">
         function redirect() {
-            console.log("Attempting to open app with deep link.");
-            // Attempt to redirect to the app
-            window.location.href = "dancify://challengelink?scene=Challenge";
+    console.log("Attempting to open app with deep link.");
+    // Use intent URL to directly launch the app
+    window.location.href = "intent://challengelink?scene=Challenge#Intent;scheme=dancify;package=com.unity.Dancify.Development;end";
 
-            // Fallback to Play Store after a delay if the app is not installed
-            setTimeout(function() {
-                console.log("App not installed; redirecting to Play Store.");
-                window.location.href = "https://play.google.com/store/apps/details?id=com.unity.Dancify.Development";
-            }, 2000); // Change the delay as needed (2000 ms = 2 seconds)
-        }
+    // Fallback to Play Store after a delay if the app is not installed
+    setTimeout(function() {
+        console.log("App not installed; redirecting to Play Store.");
+        window.location.href = "https://play.google.com/store/apps/details?id=com.unity.Dancify.Development";
+    }, 2000); // Change the delay as needed (2000 ms = 2 seconds)
+}
     </script>
 </head>
 <body onload="redirect()">
